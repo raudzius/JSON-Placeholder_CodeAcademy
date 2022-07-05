@@ -62,7 +62,7 @@ fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
               const li = document.createElement('li');
               li.innerHTML = `<h2><a href="./album.html">${album.title}</a></h2>
                                       <p>${author.name}</p>
-                                      <img src="${photo[0].url}">`;
+                                      <img src="${photo[0].thumbnailUrl}">`;
               ol.append(li);
             });
         });
