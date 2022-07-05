@@ -1,4 +1,6 @@
-fetch('https://jsonplaceholder.typicode.com/users/1')
+const userId = new URLSearchParams(location.search).get('user_id');
+
+fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
   .then(res => res.json())
   .then(user => {
     const body = document.body;
