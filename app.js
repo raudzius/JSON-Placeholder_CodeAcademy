@@ -1,4 +1,4 @@
-fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
+fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
   .then(res => res.json())
   .then(postData => {
     postData.forEach(post => {
@@ -44,7 +44,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
     });
   });
 
-fetch('https://jsonplaceholder.typicode.com/albums?_limit=5')
+fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
   .then(res => res.json())
   .then(albums => {
     const section = document.createElement('section');
