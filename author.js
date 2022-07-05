@@ -29,7 +29,7 @@ fetch('https://jsonplaceholder.typicode.com/posts/1')
     });
 
     div.innerHTML = `<p>${post.body}</p>
-                     <a href="index.html">Other posts</a>`;
+                     <a href="./index.html">Other posts</a>`;
     div.append(btn);
     div.append(ul);
     document.body.append(div);

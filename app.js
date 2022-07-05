@@ -11,7 +11,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
         .then(user => {
           div.innerHTML = `<h2>${post.title}</h2>
                              <p>${post.body}</p>
-                             <div><a href="author.html">${user.name}</a></div>`;
+                             <div><a href="./author.html">${user.name}</a></div>`;
           div.append(btn);
           div.append(ul);
         });
@@ -60,7 +60,7 @@ fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
             .then(res => res.json())
             .then(photo => {
               const li = document.createElement('li');
-              li.innerHTML = `<h2><a href="album.html">${album.title}</a></h2>
+              li.innerHTML = `<h2><a href="./album.html">${album.title}</a></h2>
                                       <p>${author.name}</p>
                                       <img src="${photo[0].url}">`;
               ol.append(li);
