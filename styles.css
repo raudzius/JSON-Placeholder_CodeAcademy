@@ -1,0 +1,11 @@
+button {
+  margin-left: 90%;
+}
+
+body > div {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 50%;
+}
