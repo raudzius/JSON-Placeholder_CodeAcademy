@@ -28,6 +28,8 @@ ol {
   align-items: center;
   position: fixed;
   display: flex;
+  top: 0;
+  left: 0;
   z-index: 1;
   width: 100%;
   padding: 0.5rem 1rem;
@@ -65,7 +67,7 @@ ol {
 main {
   display: flex;
   width: 70%;
-  margin: 0 auto;
+  margin: 4rem auto;
 }
 
 .section-heading {
