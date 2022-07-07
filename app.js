@@ -1,4 +1,5 @@
 const body = document.body;
+const form = document.forms[0];
 const postsSection = document.getElementById('posts-section');
 const albumsSection = document.getElementById('albums-section');
 
@@ -81,6 +82,13 @@ fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
     });
     albumsSection.append(albumsOl);
   });
+
+form.addEventListener('submit', event => {
+  const form = event.target;
+  const searchInputValue = form.elements.search.value;
+  console.log(searchInputValue)
+  form.action += `?search_input=${searchInputValue}`;
+});
 
 //   https://jsonplaceholder.typicode.com
 // 1. Sukurti puslapį, kuriame bus atvaizduojami įrašai (posts). Kiekvienas įrašas turi:
