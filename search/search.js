@@ -22,6 +22,10 @@ function displaySearchResults(array, heading) {
     array.forEach(item => {
       const li = document.createElement('li');
       for (key in item) {
+        if (typeof item[key] === 'object') {
+          continue;
+        }
+
         const p = document.createElement('p');
         p.textContent = `${key}: ${item[key]}`;
         li.append(p);
@@ -35,6 +39,10 @@ function displaySearchResults(array, heading) {
 function filterObjWithoutInput(array, searchValue) {
   return array.filter(item => {
     for (key in item) {
+      if (typeof item[key] === 'object') {
+        continue;
+      }
+
       if (item[key].toString().toLowerCase().includes(searchValue.toLowerCase())) {
         return true;
       }
