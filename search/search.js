@@ -22,7 +22,7 @@ function displaySearchResults(array, heading) {
     array.forEach(item => {
       const li = document.createElement('li');
       for (key in item) {
-        if (typeof item[key] === 'object') {
+        if (typeof item[key] === 'object' || key === 'id' || key === 'userId') {
           continue;
         }
 
@@ -39,7 +39,7 @@ function displaySearchResults(array, heading) {
 function filterObjWithoutInput(array, searchValue) {
   return array.filter(item => {
     for (key in item) {
-      if (typeof item[key] === 'object') {
+      if (typeof item[key] === 'object' || key === 'id' || key === 'userId') {
         continue;
       }
 
