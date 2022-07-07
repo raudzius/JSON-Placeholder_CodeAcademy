@@ -23,13 +23,14 @@ ol {
 }
 
 .main-header {
-  box-sizing: border-box;
-  width: 100%;
-  background-color: var(--main-color);
-  padding: 0.5rem 1rem;
-  display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
   align-items: center;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: var(--main-color);
 }
 
 .main-header__logo {
@@ -85,9 +86,9 @@ main {
   height: 10rem;
 }
 
-.posts-li a{
-display: inline-block;
-margin: auto;
+.posts-li a {
+  display: inline-block;
+  margin: auto;
 }
 
 .button {
@@ -115,6 +116,6 @@ margin: auto;
   float: right;
 }
 
-.main-footer{
+.main-footer {
   background-color: rgb(39, 39, 39);
 }
