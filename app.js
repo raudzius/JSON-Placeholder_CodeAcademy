@@ -5,22 +5,25 @@ const albumsSection = document.getElementById('albums-section');
 fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
   .then(res => res.json())
   .then(postData => {
-    const postsUl = document.createElement('ul');
+    const postsOl = document.createElement('ol');
+    postsOl.className = 'posts-ol';
 
     postData.forEach(post => {
       const postsLi = document.createElement('li');
-      const commentsUl = document.createElement('ul');
+      const commentsOl = document.createElement('ol');
       const commentsBtn = document.createElement('button');
       commentsBtn.textContent = 'Comments';
+      commentsBtn.className = 'button';
+      postsLi.className = 'posts-li';
 
       fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
         .then(res => res.json())
         .then(user => {
-          postsLi.innerHTML = `<h2>${post.title}</h2>
+          postsLi.innerHTML = `<h3>${post.title}</h3>
                              <p>${post.body}</p>
-                             <div><a href="./user/user.html?user_id=${post.userId}">${user.name}</a></div>`;
+                             <a href="./user/user.html?user_id=${post.userId}">${user.name}</a>`;
           postsLi.append(commentsBtn);
-          postsLi.append(commentsUl);
+          postsLi.append(commentsOl);
         });
 
       commentsBtn.addEventListener('click', () => {
@@ -28,33 +31,36 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
           `https://jsonplaceholder.typicode.com/posts/${post.id}/comments`
         ).then(res =>
           res.json().then(commentsData => {
-            commentsUl.innerHTML = '';
+            commentsOl.innerHTML = '';
             commentsData.forEach(comment => {
               const commentsLi = document.createElement('li');
-              commentsLi.innerHTML = `<h3>${comment.name}</h3>
+              commentsLi.className = 'comments-li';
+              commentsLi.innerHTML = `<h4>${comment.name}</h4>
                                    <p>${comment.body}</p>
                                    <div>${comment.email}</div>`;
-              commentsUl.prepend(commentsLi);
+              commentsOl.prepend(commentsLi);
             });
           })
         );
 
-        if (commentsUl.style.display === 'block') {
-          commentsUl.style.display = 'none';
+        if (commentsOl.style.display === 'block') {
+          commentsOl.style.display = 'none';
         } else {
-          commentsUl.style.display = 'block';
+          commentsOl.style.display = 'block';
         }
       });
 
-      postsUl.append(postsLi);
+      postsOl.append(postsLi);
     });
-    postsSection.append(postsUl);
+    postsSection.append(postsOl);
   });
 
 fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
   .then(res => res.json())
   .then(albums => {
     const albumsOl = document.createElement('ol');
+    albumsOl.className = 'albums-ol';
+
     albums.forEach(album => {
       fetch(`https://jsonplaceholder.typicode.com/users/${album.userId}`)
         .then(res => res.json())
@@ -65,9 +71,10 @@ fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
             .then(res => res.json())
             .then(photo => {
               const albumsLi = document.createElement('li');
-              albumsLi.innerHTML = `<h2><a href="./album/album.html?album_id=${album.id}">${album.title}</a></h2>
-                                      <p>${author.name}</p>
-                                      <img src="${photo[0].thumbnailUrl}">`;
+              albumsLi.className = 'albums-li';
+              albumsLi.innerHTML = `<div class="img-wrapper"><img src="${photo[0].thumbnailUrl}"></div>
+                                    <a href="./album/album.html?album_id=${album.id}">${album.title}</a>
+                                    <p>${author.name}</p>`;
               albumsOl.append(albumsLi);
             });
         });
