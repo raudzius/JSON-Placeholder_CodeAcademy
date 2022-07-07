@@ -79,6 +79,7 @@ main {
 .albums-li {
   background-color: white;
   padding: 1rem;
+  padding-bottom: 4rem;
   margin: 0.5rem;
   text-align: center;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
@@ -87,10 +88,6 @@ main {
 
 .albums-li {
   height: 10rem;
-}
-
-.posts-li > p {
-  margin-bottom: 4rem;
 }
 
 .posts-li a {
@@ -133,4 +130,18 @@ main {
 
 .main-footer {
   background-color: rgb(39, 39, 39);
+}
+
+.main-footer ul {
+  display: flex;
+  justify-content: center;
+}
+
+.main-footer li {
+  margin: 1rem 3rem;
+}
+
+.main-footer a {
+  text-decoration: none;
+  color: white;
 }
