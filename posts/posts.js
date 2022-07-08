@@ -20,7 +20,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
         fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
           method: 'DELETE',
         });
-      });
+      });   
 
       li.append(a);
       li.append(btn);

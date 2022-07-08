@@ -1,0 +1,57 @@
+main {
+  display: flex;
+}
+
+main ol,
+main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section-heading {
+  color: var(--main-color);
+  text-align: center;
+}
+
+.posts-li,
+.albums-li {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 8px;
+}
+
+.action-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.posts-li a {
+  display: inline-block;
+}
+
+.button {
+  border: 0.1rem solid var(--red-color-900);
+  background-color: var(--main-color);
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.button:hover,
+.button:active {
+  background-color: white;
+  color: var(--main-color);
+}
+
+.comments-li {
+  margin: 0 0.5rem;
+}

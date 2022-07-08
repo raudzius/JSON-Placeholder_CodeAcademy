@@ -7,7 +7,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
     body.innerHTML = `<div id="user"><h2>${user.name}</h2>
                       <p>Username: ${user.username}<p>
                       <p>Email: ${user.email}</p>
-                      <p>Adress: <a>${user.address.street}, ${user.address.suite}, ${user.address.city}, zip: ${user.address.zipcode}</a></p>
+                      <p>Address: <a>${user.address.street}, ${user.address.suite}, ${user.address.city}, zip: ${user.address.zipcode}</a></p>
                       <p>Phone: ${user.phone}</p>
                       <p>Website: ${user.website}</p>
                       <p>Company: ${user.company.name}</p></div>`;
@@ -51,16 +51,3 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
         });
       });
   });
-
-// 3. Sukurti naują puslapį user.html, kuriame bus atvaizduojama vartotojo informacija:
-//   3.1. Pilnas vardas.
-//   3.2. Vartotojo vardas / nick'as.
-//   3.3. El. paštas.
-//   3.4. Adresas, kuris turės gatvę, namo numerį, miestą, pašto kodą. Paspaudus ant adreso, pagal koordinates, turėtų atidaryti šios vietos Google Maps.
-//   3.5. Telefono numeris.
-//   3.6. Internetinio puslapio adresas.
-//   3.7. Įmonės, kurioje dirba, pavadinimas.
-// 4. Šiame puslapyje turės būti atvaizduojama:
-//   4.1. Visi vartotojo parašyti įrašai (posts). Post'ų įrašuose nereikia atvaizduoti komentarų. Kiekvienas post'as turi turėti nuorodą.
-//   4.2. Visi vartotojo sukurti foto albumai. Kiekvienas albumas turės:
-//     4.2.1. Albumo pavadinimą, kuris turi būti nuoroda. Kol kas nuoroda gali niekur nevesti.
