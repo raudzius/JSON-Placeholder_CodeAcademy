@@ -35,6 +35,10 @@ main ul {
   display: inline-block;
 }
 
+.albums-li p {
+  margin: 0;
+}
+
 .button {
   border: 0.1rem solid var(--red-color-900);
   background-color: var(--main-color);

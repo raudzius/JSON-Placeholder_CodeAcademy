@@ -29,8 +29,8 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
                              <p>${post.body}</p>`;
           div.append(a);
           div.append(commentsBtn);
-          commentsOl.append(div);
-          postsLi.append(commentsOl);
+          postsLi.append(div);
+          div.before(commentsOl);
         });
 
       commentsBtn.addEventListener('click', () => {

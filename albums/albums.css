@@ -1,24 +1,21 @@
-h1 {
-  color: var(--main-color);
-  text-align: center;
-}
-
-ul {
+main ul {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
-main li {
+main ul li {
+  min-width: 25%;
+  max-width: 25%;
+  flex: 1;
   background-color: white;
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 1rem;
   text-align: center;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius: 8px;
-  min-width: 30%;
 }
