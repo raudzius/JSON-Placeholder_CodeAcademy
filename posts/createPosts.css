@@ -1,0 +1,91 @@
+body {
+  font-size: 1.5rem;
+  background-color: rgb(238, 238, 238);
+  padding: 2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form {
+  border: 1px solid black;
+  width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+  width: 90%;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  margin: 0.1rem auto;
+}
+
+div {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='submit'] {
+  margin: 1.5rem auto;
+  padding: 1rem 3rem;
+  font-family: inherit;
+  background-color: rgb(92, 11, 11);
+  border: 1px solid transparent;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  display: block;
+  border-radius: 8px;
+  width: auto;
+}
+
+input[type='submit']:hover {
+  background-color: white;
+  color: rgb(92, 11, 11);
+  border: 1px solid black;
+}
+
+ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  font-size: 1.3rem;
+  border: 1px solid black;
+  width: 30rem;
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: rgb(255, 240, 240);
+}
+
+ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  font-size: 1.3rem;
+  border: 1px solid black;
+  width: 30rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  background-color: rgb(255, 240, 240);
+  padding: 1rem;
+}
+
+button {
+  margin: 0 auto;
+  padding: 1rem 3rem;
+  font-family: inherit;
+  background-color: rgb(92, 11, 11);
+  border: 1px solid transparent;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  display: block;
+  border-radius: 8px;
+  width: auto;
+}
