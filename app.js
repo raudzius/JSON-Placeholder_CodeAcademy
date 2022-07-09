@@ -23,7 +23,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
         .then(res => res.json())
         .then(user => {
           const a = document.createElement('a');
-          a.href = `href="./user/user.html?user_id=${post.userId}`;
+          a.href = `./user/user.html?user_id=${post.userId}`;
           a.textContent = user.name;
           postsLi.innerHTML = `<h3>${post.title}</h3>
                              <p>${post.body}</p>`;

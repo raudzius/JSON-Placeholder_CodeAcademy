@@ -1,15 +1,13 @@
 fetch('https://jsonplaceholder.typicode.com/posts/1')
   .then(res => res.json())
   .then(post => {
-    const div = document.createElement('div');
+    const main = document.createElement('main');
     const btn = document.createElement('button');
     const ul = document.createElement('ul');
 
     btn.textContent = 'Comments';
     btn.addEventListener('click', () => {
-      fetch(
-        `https://jsonplaceholder.typicode.com/posts/${post.id}/comments`
-      ).then(res =>
+      fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`).then(res =>
         res.json().then(commentsData => {
           ul.innerHTML = '';
           commentsData.forEach(comment => {
@@ -27,10 +25,11 @@ fetch('https://jsonplaceholder.typicode.com/posts/1')
         ul.style.display = 'block';
       }
     });
-
-    div.innerHTML = `<p>${post.body}</p>
-                     <a href="./index.html">Other posts</a>`;
+    const div = document.createElement('div');
+    main.innerHTML = `<p>${post.body}</p>`;
+    div.innerHTML = `<a href="../index.html">Other posts</a>`;
     div.append(btn);
-    div.append(ul);
-    document.body.append(div);
+    main.append(div);
+    main.append(ul);
+    document.body.append(main);
   });

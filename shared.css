@@ -66,20 +66,26 @@ body {
 }
 
 .main-nav__li > form > input {
-  font-size: inherit;
-  font-family: inherit;
+  font: inherit;
   border: none;
   border-radius: 4px;
-  padding: 0.1rem;
+  padding: 0.1rem 0.3rem;
+  border: 1px solid #ccc;
+  background-color: rgb(255, 225, 225);
 }
 
 .main-nav__li > form > input:focus-visible {
   outline: none;
+  background-color: rgb(255, 204, 204);
+
 }
 
-.main-nav__li > form > button {
-  font-size: inherit;
-  font-family: inherit;
+.main-nav__li > form > input[type='submit'] {
+  padding: 0.1rem 0.3rem;
+  font: inherit;
+  background-color: var(--red-color-900);
+  border: 1px solid black;
+  color: white;
 }
 
 main {
