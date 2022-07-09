@@ -59,9 +59,6 @@ body {
 
 .main-header__ul {
   display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .main-header__li {

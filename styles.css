@@ -1,5 +1,6 @@
 main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
 
 main ol,
@@ -23,6 +24,8 @@ main ul {
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius: 8px;
+  border: 1px solid black;
+  min-height: 14rem;
 }
 
 .action-wrapper {
