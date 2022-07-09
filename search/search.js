@@ -1,16 +1,3 @@
-// 11. Navigacijos elemente sukurti paieškos laukelį (formą ir text input).
-// 12. Formos submit metu, nukreipti į naują puslapį (search.html).
-// 13. Šiame puslapyje atvaizduoti paieškos rezultatą.
-// 13.1. Jeigu nėra tinkamų rezultatų, tai parašyti, jog rezultatų pagal užklausą nerasta.
-// 14. Filtruoti pagal:
-// 14.1. Tikslų vartotoj  o username.
-// 14.2. Jeigu neranda pagal username, tada pagal tikslų vartotojo pilną vardą.
-// 14.3. Jeigu neranda pagal username arba pagal tikslu vartotojo pilna vardą, tada pagal tikslų vartotojo el. paštą.
-// 14.4. Tikslų post'o pavadinimą.
-// 14.5. Tikslų albumo pavadinimą.
-// Papildoma:
-// 15. Search puslapyje turi būti paieškos forma, kuri veikia neperkraunant puslapio.
-// 16. Sukurti filtravimo galimybę iš dalies frazės, o nebūtinai pagal tikslią frazę.
 const main = document.querySelector('main');
 const div = document.createElement('div');
 
@@ -70,14 +57,15 @@ fetch('https://jsonplaceholder.typicode.com/users')
             displaySearchResults(filteredPosts, 'Posts');
             displaySearchResults(filteredAlbums, 'Albums');
 
+            const h1 = document.createElement('h1');
             if (!filteredUsers.length && !filteredPosts.length && !filteredAlbums.length) {
-              const h1 = document.createElement('h1');
               h1.textContent = 'Rezultatų pagal užklausą nerasta.';
-              div.append(h1);
+              main.prepend(h1);
             }
 
             form.addEventListener('submit', event => {
               event.preventDefault();
+              h1.remove();
               div.innerHTML = ``;
               const form = event.target;
               const searchValue = form.elements.search.value;
@@ -89,7 +77,9 @@ fetch('https://jsonplaceholder.typicode.com/users')
               displaySearchResults(filteredUsers, 'Users');
               displaySearchResults(filteredPosts, 'Posts');
               displaySearchResults(filteredAlbums, 'Albums');
-
+              if ((div.innerHTML === '')) {
+                main.prepend(h1);
+              }
               main.append(div);
             });
             main.append(div);

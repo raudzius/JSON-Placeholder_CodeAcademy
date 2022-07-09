@@ -1,113 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap');
-
-html {
-  --main-color: rgb(255, 68, 68);
-  --red-color-100: rgb(255, 230, 230);
-  --red-color-900: rgb(92, 0, 0);
-
-  --gray-color-100: rgb(241, 241, 241);
-}
-
-body {
-  font-family: 'Lato', sans-serif;
-  margin: 0;
-  font-size: 1.2rem;
-  background-color: var(--gray-color-100);
-}
-
-.main-header {
-  box-sizing: border-box;
-  width: 100%;
-  background-color: var(--main-color);
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.main-header__logo {
-  color: var(--red-color-900);
-  text-decoration: none;
-  font: bold 2rem 'Montserrat', sans-serif;
-}
-
-.main-nav__ul {
-  margin: 0;
+ul {
   padding: 0;
 }
 
-.main-nav__li {
-  display: inline-block;
-  margin: 0 1rem;
+main form,
+h1 {
+  text-align: center;
 }
 
-.main-nav__li a {
-  text-decoration: none;
-  color: var(--red-color-900);
-  padding: 0.2rem;
-}
-
-.main-nav__li a:hover,
-.main-nav__li a:active {
-  color: white;
-  border-bottom: 3px solid white;
-}
-
-main {
-  display: flex;
-  width: 70%;
-  margin: 0 auto;
-}
-
-.section-heading {
+h2 {
   color: var(--main-color);
   text-align: center;
 }
 
-.posts-li,
-.albums-li {
-  background-color: white;
-  padding: 1rem;
-  margin: 0.5rem;
-  text-align: center;
-
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-}
-
-.albums-li {
-  height: 10rem;
-}
-
-.posts-li a {
-  display: inline-block;
-  margin: auto;
-}
-
-.button {
-  background-color: var(--main-color);
-  color: white;
+main > form > input {
   font: inherit;
-  border: 0.1rem solid var(--red-color-900);
-  padding: 0.5rem;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+  border: 1px solid rgb(116, 116, 116);
 }
 
-.button:hover,
-.button:active {
-  background-color: white;
-  color: var(--main-color);
+main > form > input:focus-visible {
+  outline: none;
+  background-color: rgb(255, 204, 204);
 }
 
-.comments-li {
-  margin: 0 0.5rem;
-}
-
-.img-wrapper {
-  float: right;
-}
-
-.main-footer {
-  background-color: rgb(39, 39, 39);
+main > form > input[type='submit'] {
+  padding: 0.1rem 0.3rem;
+  font: inherit;
+  background-color: var(--red-color-900);
+  border: 1px solid black;
+  color: white;
 }

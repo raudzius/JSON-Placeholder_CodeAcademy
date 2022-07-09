@@ -40,7 +40,7 @@ main ul {
 }
 
 .button {
-  border: 0.1rem solid var(--red-color-900);
+  border: 1px solid var(--main-color);
   background-color: var(--main-color);
   font-weight: bold;
   cursor: pointer;
