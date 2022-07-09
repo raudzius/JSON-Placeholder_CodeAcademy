@@ -3,8 +3,7 @@ const userId = new URLSearchParams(location.search).get('user_id');
 fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
   .then(res => res.json())
   .then(user => {
-    const body = document.body;
-    const main = document.createElement('main');
+    const main = document.querySelector('main');
     const section = document.createElement('section');
     main.innerHTML = `<h1>${user.name}</h1>
                       <ul id="user">
@@ -29,7 +28,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
       .then(posts => {
         posts.forEach(post => {
           const li = document.createElement('li');
-          li.innerHTML = `<h3><a href="">${post.title}</a></h3>
+          li.innerHTML = `<h3><a href="../post/post.html?post_id=${post.id}">${post.title}</a></h3>
                           <p>${post.body}</p>`;
           postsOl.append(li);
         });
@@ -41,7 +40,6 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
     albumsOl.prepend(albumsH3);
     section.append(albumsOl);
     main.append(section);
-    body.append(main);
 
     fetch('https://jsonplaceholder.typicode.com/users/1/albums')
       .then(res => res.json())

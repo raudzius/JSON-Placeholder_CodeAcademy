@@ -1,5 +1,4 @@
 const footer = document.createElement('footer');
-footer.className = 'main-footer';
 footer.innerHTML = `
 <nav>
   <ul>

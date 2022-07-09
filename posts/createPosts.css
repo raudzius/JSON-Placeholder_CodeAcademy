@@ -1,31 +1,24 @@
-body {
-  font-size: 1.5rem;
-  background-color: rgb(238, 238, 238);
-  padding: 2rem;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-form {
+main form {
   border: 1px solid black;
   width: 40rem;
   margin: 0 auto;
   text-align: center;
 }
 
-input {
+main input {
   width: 90%;
   box-sizing: border-box;
   font-size: 1.1rem;
   margin: 0.1rem auto;
 }
 
-div {
+main div {
   margin: 1rem;
   display: flex;
   flex-direction: column;
 }
 
-input[type='submit'] {
+main input[type='submit'] {
   margin: 1.5rem auto;
   padding: 1rem 3rem;
   font-family: inherit;
@@ -39,19 +32,19 @@ input[type='submit'] {
   width: auto;
 }
 
-input[type='submit']:hover {
+main input[type='submit']:hover {
   background-color: white;
   color: rgb(92, 11, 11);
   border: 1px solid black;
 }
 
-ul {
+main ul {
   text-align: center;
   list-style: none;
   padding: 0;
 }
 
-li {
+main li {
   font-size: 1.3rem;
   border: 1px solid black;
   width: 30rem;
@@ -60,23 +53,7 @@ li {
   background-color: rgb(255, 240, 240);
 }
 
-ul {
-  text-align: center;
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  font-size: 1.3rem;
-  border: 1px solid black;
-  width: 30rem;
-  margin: 2rem auto;
-  border-radius: 8px;
-  background-color: rgb(255, 240, 240);
-  padding: 1rem;
-}
-
-button {
+main button {
   margin: 0 auto;
   padding: 1rem 3rem;
   font-family: inherit;

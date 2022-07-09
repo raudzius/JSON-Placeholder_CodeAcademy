@@ -1,7 +1,7 @@
 fetch('https://jsonplaceholder.typicode.com/users')
   .then(res => res.json())
   .then(users => {
-    const main = document.createElement('main');
+    const main = document.querySelector('main');
     const ul = document.createElement('ul');
     users.forEach(user => {
       fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
@@ -13,5 +13,4 @@ fetch('https://jsonplaceholder.typicode.com/users')
         });
     });
     main.append(ul);
-    document.body.append(main);
   });

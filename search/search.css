@@ -18,6 +18,7 @@ main > form > input {
   border-radius: 4px;
   padding: 0.1rem 0.3rem;
   border: 1px solid rgb(116, 116, 116);
+  cursor: pointer;
 }
 
 main > form > input:focus-visible {

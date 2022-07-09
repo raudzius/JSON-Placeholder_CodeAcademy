@@ -1,91 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 html {
-  --main-color: rgb(255, 68, 68);
-  --red-color-100: rgb(255, 230, 230);
-  --red-color-900: rgb(92, 0, 0);
-  --gray-color-100: rgb(241, 241, 241);
+  --white: white;
+  --black: #333;
 }
 
 body {
-  font-family: 'Lato', sans-serif;
-  box-sizing: border-box;
+  position: relative;
   margin: 0;
   min-height: 100vh;
   padding: 4rem 0;
   font-size: 1.2rem;
-  background-color: var(--gray-color-100);
-  position: relative;
+  font-family: 'Lato', sans-serif;
 }
 
 .main-header {
-  justify-content: space-between;
-  box-sizing: border-box;
-  align-items: center;
   position: fixed;
-  display: flex;
-  top: 0;
-  left: 0;
   z-index: 1;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
   width: 100%;
   padding: 0.5rem 1rem;
-  background-color: var(--main-color);
+  background-color: var(--white);
+}
+
+.main-header__link {
+  vertical-align: middle;
+  text-decoration: none;
+  color: var(--black);
 }
 
 .main-header__logo {
-  color: var(--red-color-900);
-  text-decoration: none;
   font: bold 2rem 'Montserrat', sans-serif;
 }
 
-.main-header__logo:hover {
-  color: white;
-}
-
-.main-nav__ul {
-  list-style: none;
+.main-header__ul {
   display: flex;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-.main-nav__li {
+.main-header__li {
   margin: 0 1rem;
-}
-
-.main-nav__li a {
-  text-decoration: none;
-  padding: 0.2rem;
-  color: var(--red-color-900);
-}
-
-.main-nav__li a:hover,
-.main-nav__li a:active {
-  border-bottom: 3px solid white;
-  color: white;
-}
-
-.main-nav__li > form > input {
-  font: inherit;
-  border: none;
-  border-radius: 4px;
-  padding: 0.1rem 0.3rem;
-  border: 1px solid #ccc;
-  background-color: rgb(255, 225, 225);
-}
-
-.main-nav__li > form > input:focus-visible {
-  outline: none;
-  background-color: rgb(255, 204, 204);
-
-}
-
-.main-nav__li > form > input[type='submit'] {
-  padding: 0.1rem 0.3rem;
-  font: inherit;
-  background-color: var(--red-color-900);
-  border: 1px solid black;
-  color: white;
 }
 
 main {
@@ -93,25 +73,23 @@ main {
   width: 70%;
 }
 
-.main-footer {
-  background-color: rgb(39, 39, 39);
+footer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+  background-color: var(--black);
 }
 
-.main-footer ul {
-  justify-content: center;
+footer ul {
   display: flex;
-  margin: 0;
+  justify-content: center;
+  list-style: none;
 }
 
-.main-footer li {
+footer a {
+  display: inline-block;
   margin: 1rem 3rem;
-}
-
-.main-footer a {
   text-decoration: none;
-  color: white;
+  color: var(--white);
 }
