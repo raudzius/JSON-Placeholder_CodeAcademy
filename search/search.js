@@ -49,9 +49,9 @@ fetch('https://jsonplaceholder.typicode.com/users')
             const searchValue = new URLSearchParams(location.search).get('search');
             const form = document.forms[0];
 
-            let filteredUsers = users.filter(user => user.username === searchValue || user.name === searchValue || user.email === searchValue);
-            let filteredPosts = posts.filter(post => post.title === searchValue);
-            let filteredAlbums = albums.filter(album => album.title === searchValue);
+            let filteredUsers = users.filter(user => user.username.includes(searchValue) || user.name.includes(searchValue) || user.email.includes(searchValue));
+            let filteredPosts = posts.filter(post => post.title.includes(searchValue));
+            let filteredAlbums = albums.filter(album => album.title.includes(searchValue));
 
             displaySearchResults(filteredUsers, 'Users');
             displaySearchResults(filteredPosts, 'Posts');
@@ -77,7 +77,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
               displaySearchResults(filteredUsers, 'Users');
               displaySearchResults(filteredPosts, 'Posts');
               displaySearchResults(filteredAlbums, 'Albums');
-              if ((div.innerHTML === '')) {
+              if (div.innerHTML === '') {
                 main.prepend(h1);
               }
               main.append(div);
