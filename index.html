@@ -11,13 +11,27 @@
     <script src="./footer.js" defer></script>
     <title>Posts</title>
   </head>
-  <body>
+  <body class="text-primary-400">
     <main>
-      <section id="posts-section">
-        <h2 class="section-heading">Posts</h2>
+      <section class="section">
+        <div class="container">
+          <h1 class="fs-primary-heading fw-bold">Posts</h1>
+          <ul aria-label="Primary" role="list" class="posts"></ul>
+        </div>
       </section>
-      <section id="albums-section">
-        <h2 class="section-heading">Albums</h2>
+      <section class="section">
+        <h2 class="fs-secondary-heading fw-bold albums-section__h2">Albums</h2>
+        <div class="carousel">
+          <ul class="carousel__album-list"></ul>
+          <nav class="carousel__album-nav"></nav>
+        </div>
+        <button class="button albums-btn">Albums</button>
+      </section>
+      <section class="cta | bg-accent-400 text-neutral-100">
+        <div class="container">
+            <h2 class="fs-secondary-heading fw-bold text-accent-100">Visit all users page.</h2>
+          <div><button class="button inverted" data-type="inverted">Users</button></div>
+        </div>
       </section>
     </main>
   </body>

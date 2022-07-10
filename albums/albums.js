@@ -1,7 +1,7 @@
 fetch('https://jsonplaceholder.typicode.com/albums')
   .then(res => res.json())
   .then(albums => {
-    const main = document.createElement('main');
+    const main = document.querySelector('main');
     const ul = document.createElement('ul');
     albums.forEach(album => {
       fetch(`https://jsonplaceholder.typicode.com/users/${album.userId}`)
@@ -20,5 +20,4 @@ fetch('https://jsonplaceholder.typicode.com/albums')
         });
     });
     main.append(ul);
-    document.body.append(main);
   });

@@ -1,17 +1,13 @@
-const body = document.body;
 const form = document.forms[0];
-const postsSection = document.getElementById('posts-section');
-const albumsSection = document.getElementById('albums-section');
+const postsUl = document.querySelector('.posts');
 
 fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
   .then(res => res.json())
   .then(postData => {
-    const postsOl = document.createElement('ol');
-    postsOl.className = 'posts-ol';
-
     postData.forEach(post => {
       const postsLi = document.createElement('li');
-      const commentsOl = document.createElement('ol');
+      postsLi.className = 'post';
+      const commentsUl = document.createElement('ul');
       const commentsBtn = document.createElement('button');
       const div = document.createElement('div');
       div.className = 'action-wrapper';
@@ -25,46 +21,46 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
           const a = document.createElement('a');
           a.href = `./user/user.html?user_id=${post.userId}`;
           a.textContent = user.name;
-          postsLi.innerHTML = `<h3>${post.title}</h3>
+          postsLi.innerHTML = `<h3 class="fs-600 fw-bold">${post.title}</h3>
                              <p>${post.body}</p>`;
           div.append(a);
           div.append(commentsBtn);
           postsLi.append(div);
-          div.before(commentsOl);
+          div.before(commentsUl);
         });
 
       commentsBtn.addEventListener('click', () => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`).then(res =>
           res.json().then(commentsData => {
-            commentsOl.innerHTML = '';
+            commentsUl.innerHTML = '';
             commentsData.forEach(comment => {
               const commentsLi = document.createElement('li');
               commentsLi.className = 'comments-li';
               commentsLi.innerHTML = `<h4>${comment.name}</h4>
                                    <p>${comment.body}</p>
                                    <div>${comment.email}</div>`;
-              commentsOl.prepend(commentsLi);
+              commentsUl.prepend(commentsLi);
             });
           })
         );
 
-        if (commentsOl.style.display === 'block') {
-          commentsOl.style.display = 'none';
+        if (commentsUl.style.display === 'block') {
+          commentsUl.style.display = 'none';
         } else {
-          commentsOl.style.display = 'block';
+          commentsUl.style.display = 'block';
         }
       });
 
-      postsOl.append(postsLi);
+      postsUl.append(postsLi);
     });
-    postsSection.append(postsOl);
   });
 
 fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
   .then(res => res.json())
   .then(albums => {
-    const albumsOl = document.createElement('ol');
-    albumsOl.className = 'albums-ol';
+    const carouselAlbumUl = document.querySelector('.carousel__album-list');
+    const carouselAlbumNav = document.querySelector('.carousel__album-nav');
+    let num = 0;
 
     albums.forEach(album => {
       fetch(`https://jsonplaceholder.typicode.com/users/${album.userId}`)
@@ -73,23 +69,26 @@ fetch('https://jsonplaceholder.typicode.com/albums?_limit=15')
           fetch(`https://jsonplaceholder.typicode.com/albums/${album.id}/photos?_limit=1`)
             .then(res => res.json())
             .then(photo => {
-              const albumsLi = document.createElement('li');
-              albumsLi.className = 'albums-li';
-              albumsLi.innerHTML = `<div class="img-wrapper"><img src="${photo[0].thumbnailUrl}"></div>
+              const li = document.createElement('li');
+              const a = document.createElement('a');
+              num++;
+
+              li.className = 'albums-li';
+              li.id = `item${num}`;
+              li.innerHTML = `<div class="img-wrapper"><img src="${photo[0].thumbnailUrl}"></div>
                                     <a href="./album/album.html?album_id=${album.id}">${album.title}</a>
                                     <p>${author.name}</p>`;
-              albumsOl.append(albumsLi);
+              a.href = `#item${num}`;
+              a.textContent = num;
+              carouselAlbumUl.append(li);
+              carouselAlbumNav.append(a);
             });
         });
     });
-    albumsSection.append(albumsOl);
   });
 
 form.addEventListener('submit', event => {
   const form = event.target;
   const searchInputValue = form.elements.search.value;
-  console.log(searchInputValue);
   form.action += `?search_input=${searchInputValue}`;
 });
-
-console.dir(window.location);
