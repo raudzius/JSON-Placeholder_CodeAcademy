@@ -2,7 +2,7 @@ const pathName = window.location.pathname;
 
 function createPath(path) {
   const pathLength = pathName.split('/').length;
-  if (pathLength > 2) {
+  if (pathLength > window.location.port ? 2 : 3) {
     return `../${path}`;
   }
   return `./${path}`;

@@ -1,8 +1,8 @@
 const footer = document.createElement('footer');
 
 function createPath(path) {
-  const pathLength = pathName.split('/').length;
-  if (pathLength > 2) {
+  const pathLength = pathName.replace().split('/').length;
+  if (pathLength > window.location.port ? 2 : 3) {
     return `../${path}`;
   }
   return `./${path}`;
