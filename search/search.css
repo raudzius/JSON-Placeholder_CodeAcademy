@@ -1,3 +1,9 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 ul {
   padding: 0;
 }
@@ -10,31 +16,4 @@ h1 {
 h2 {
   color: var(--main-color);
   text-align: center;
-}
-
-main > form > input {
-  font: inherit;
-  border: none;
-  border-radius: 4px;
-  padding: 0.1rem 0.3rem;
-  border: 1px solid rgb(116, 116, 116);
-  cursor: pointer;
-}
-
-main > form > input:focus-visible {
-  outline: none;
-  background-color: rgb(255, 204, 204);
-}
-
-main > form > input[type='submit'] {
-  padding: 0.1rem 0.3rem;
-  font: inherit;
-  background-color: var(--red-color-900);
-  border: 1px solid black;
-  color: white;
-}
-
-footer{
-  position: absolute;
-  bottom: 0;
 }

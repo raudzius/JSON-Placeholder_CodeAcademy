@@ -183,8 +183,8 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-form{
-caret-color: var(--clr-accent-400);
+form {
+  caret-color: var(--clr-accent-400);
 }
 
 .container {
@@ -192,7 +192,7 @@ caret-color: var(--clr-accent-400);
   margin: auto;
 }
 
-.section{
+.section {
   margin-bottom: 10rem;
 }
 
