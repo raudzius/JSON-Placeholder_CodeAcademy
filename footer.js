@@ -1,39 +1,37 @@
 const footer = document.createElement('footer');
-footer.classList.add('bg-neutral-900', 'text-neutral-100');
+footer.classList.add('bg-neutral-100');
 footer.innerHTML = `
       <div class="container">
-        <div class="even-columns">
-          <div>
-            <a href="">Logo</a>
-            <ul role="list" aria-label="Social links">
-              <li><a aria-label="facebook" href="#"></a></li>
-              <li><a aria-label="youtube" href="#"></a></li>
-              <li><a aria-label="twitter" href="#"></a></li>
-              <li><a aria-label="pinterest" href="#"></a></li>
-              <li><a aria-label="instagram" href="#"></a></li>
+          <div class="footer-social">
+            <a href="" class="primary-header__logo">JSON-Placeholder</a>
+            <ul role="list" aria-label="Social links" class="social-links">
+            <li><a aria-label="facebook" href="#"><img src="../icons/icon-facebook.svg" alt="Facebook"></a></li>
+            <li><a aria-label="youtube" href="#"></a><img src="../icons/icon-youtube.svg" alt="Youtube"></li>
+            <li><a aria-label="twitter" href="#"></a><img src="../icons/icon-twitter.svg" alt="Twitter"></li>
+            <li><a aria-label="pinterest" href="#"><img src="../icons/icon-pinterest.svg" alt="Pinterest"></a></li>
+            <li><a aria-label="instagram" href="#"><img src="../icons/icon-instagram.svg" alt="Instagram "></a></li>
             </ul>
           </div>
-          <div>
             <nav class="footer-nav">
               <ul aria-label="Footer" role="list">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Posts</a></li>
                 <li><a href="#">Albums</a></li>
                 <li><a href="#">Users</a></li>
+                </ul>
+                <ul>
                 <li><a href="#">Search</a></li>
                 <li><a href="#">Create Post</a></li>
                 <li><a href="#">Privacy Policy</a></li>
-              </ul>
+                </ul>
             </nav>
-          </div>
-          <div>
+          <div class="footer-form__div">
             <form>
-              <input type="email" />
+              <input class="fs-400" type="email" placeholder="updates in your inbox..." />
               <button class="button">Go</button>
             </form>
-            <p>Copyright 2022. All Rights Reserved</p>
+            <p class="fs-400">Copyright 2022. All Rights Reserved</p>
           </div>
-        </div>
       </div>
 `;
 

@@ -205,7 +205,7 @@ form {
   z-index: 1;
   top: 0;
   width: 100%;
-  background-color: var(--white);
+  background-color: white;
 }
 
 .primary-header > .container {
@@ -238,19 +238,62 @@ main {
 
 footer {
   width: 100%;
-  background-color: var(--black);
   padding: 4rem 0;
 }
 
-footer ul {
+footer > div {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+footer .primary-header__logo {
+  color: white;
+}
+
+.footer-nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+footer nav ul {
   list-style: none;
 }
 
 footer a {
-  display: inline-block;
-  margin: 1rem 3rem;
   text-decoration: none;
-  color: var(--white);
+}
+
+.footer-nav a {
+  color: rgb(197, 197, 197);
+  font-size: var(--fs-600);
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-form__div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-form__div form input {
+  width: 12rem;
+  padding: 0.6rem;
+  border-radius: 100vmax;
+}
+
+.footer-form__div p {
+  text-align: right;
+  color: gray;
 }
