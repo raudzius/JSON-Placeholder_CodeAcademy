@@ -1,3 +1,8 @@
+document.head.append(
+  (document.createElement('base').href =
+    'https://raudzius.github.io/JSON-Placeholder_CodeAcademy/')
+);
+
 const pathName = window.location.pathname;
 
 function createPath(path) {
