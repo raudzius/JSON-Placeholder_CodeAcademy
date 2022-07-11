@@ -1,15 +1,17 @@
+const pathName = window.location.pathname;
+
 function createPath(path) {
-  const pathLength = window.location.pathname.split('/').length;
+  const pathLength = pathName.split('/').length;
   if (pathLength > 2) {
-    return `.${path}`;
+    return `../${path}`;
   }
-  return path;
+  return `./${path}`;
 }
 
 const navItems = [
-  { title: 'Posts', path: createPath('./posts/posts.html') },
-  { title: 'Albums', path: createPath('./albums/albums.html') },
-  { title: 'Users', path: createPath('./users/users.html') },
+  { title: 'Posts', path: createPath('posts/posts.html') },
+  { title: 'Albums', path: createPath('albums/albums.html') },
+  { title: 'Users', path: createPath('users/users.html') },
 ];
 
 const header = document.createElement('header');
@@ -37,11 +39,16 @@ document.body.prepend(header);
 navItems.map(navItem => {
   const navItemLi = document.createElement('li');
   const navItemLink = document.createElement('a');
+  const linkPath = navItem.path.slice(navItem.path.indexOf('/'));
 
   navItemLi.className = 'primary-header__li';
   navItemLink.className = 'primary-header__link';
   navItemLink.textContent = navItem.title;
   navItemLink.href = navItem.path;
+
+  if (pathName.includes(linkPath)) {
+    navItemLink.classList.add('active');
+  }
 
   navItemLi.append(navItemLink);
   document.querySelector('.nav-list').append(navItemLi);

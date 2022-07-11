@@ -296,3 +296,7 @@ footer a {
   text-align: right;
   color: gray;
 }
+
+.active {
+  color: var(--clr-accent-400);
+}
