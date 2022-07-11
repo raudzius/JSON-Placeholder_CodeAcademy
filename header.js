@@ -19,9 +19,9 @@ header.className = 'primary-header';
 header.innerHTML = `
 <div class="container">
   <div class="primary-header__logo-wrapper">
-    <a href="${createPath(
+    <a href=${createPath(
       './index.html'
-    )}" class="primary-header__logo primary-header__link">JSON-Placeholder</a>
+    )} class="primary-header__logo primary-header__link">JSON-Placeholder</a>
   </div>
   <nav class="primary-navigation">
     <ul role="list" class="nav-list">
