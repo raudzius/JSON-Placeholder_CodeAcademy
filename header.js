@@ -21,3 +21,4 @@ header.innerHTML = `
 </div>
 `;
 document.body.prepend(header);
+console.dir(window.location)

@@ -9,6 +9,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
       const a = document.createElement('a');
       const btn = document.createElement('button');
       btn.textContent = 'Delete';
+      btn.className = 'button';
       a.href = `./editPost.html?user_id=${post.userId}&post_id=${post.id}&post_title=${post.title}&post_body=${post.body}`;
       a.textContent = 'Edit';
 

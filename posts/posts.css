@@ -2,6 +2,10 @@ h1 {
   text-align: center;
 }
 
+ul {
+  list-style: none;
+}
+
 main li {
   width: 60%;
   border: 1px solid black;
@@ -13,6 +17,11 @@ main li {
 li > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+li > div > a {
+  align-self: end;
 }
 
 .main__create-post-link {
