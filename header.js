@@ -2,7 +2,7 @@ const pathName = window.location.pathname;
 
 function createPath(path) {
   const pathLength = pathName.split('/').length;
-  if (pathLength > window.location.port ? 2 : 3) {
+  if (pathLength > window.location.port === '' ? 2 : 3) {
     return `../${path}`;
   }
   return `./${path}`;
@@ -20,7 +20,7 @@ header.innerHTML = `
 <div class="container">
   <div class="primary-header__logo-wrapper">
     <a href=${createPath(
-      './index.html'
+      'index.html'
     )} class="primary-header__logo primary-header__link">JSON-Placeholder</a>
   </div>
   <nav class="primary-navigation">
