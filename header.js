@@ -5,7 +5,7 @@ function createPath(path) {
   if (pathLength > 2) {
     return `../${path}`;
   }
-  return `/${path}`;
+  return `./${path}`;
 }
 
 const navItems = [

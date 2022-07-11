@@ -1,15 +1,34 @@
 const footer = document.createElement('footer');
+
+function createPath(path) {
+  const pathLength = pathName.split('/').length;
+  if (pathLength > 2) {
+    return `../${path}`;
+  }
+  return `./${path}`;
+}
+
 footer.classList.add('bg-neutral-100');
 footer.innerHTML = `
       <div class="container">
           <div class="footer-social">
             <a href="" class="primary-header__logo">JSON-Placeholder</a>
             <ul role="list" aria-label="Social links" class="social-links">
-            <li><a aria-label="facebook" href="#"><img src="icons/icon-facebook.svg" alt="Facebook"></a></li>
-            <li><a aria-label="youtube" href="#"></a><img src="/icons/icon-youtube.svg" alt="Youtube"></li>
-            <li><a aria-label="twitter" href="#"></a><img src="/icons/icon-twitter.svg" alt="Twitter"></li>
-            <li><a aria-label="pinterest" href="#"><img src="/icons/icon-pinterest.svg" alt="Pinterest"></a></li>
-            <li><a aria-label="instagram" href="#"><img src="/icons/icon-instagram.svg" alt="Instagram "></a></li>
+            <li><a aria-label="facebook" href="#"><img src="${createPath(
+              'icons/icon-facebook.svg'
+            )}" alt="Facebook"></a></li>
+            <li><a aria-label="youtube" href="#"></a><img src="${createPath(
+              'icons/icon-youtube.svg'
+            )}" alt="Youtube"></li>
+            <li><a aria-label="twitter" href="#"></a><img src="${createPath(
+              'icons/icon-twitter.svg'
+            )}" alt="Twitter"></li>
+            <li><a aria-label="pinterest" href="#"><img src="${createPath(
+              'icons/icon-pinterest.svg'
+            )}" alt="Pinterest"></a></li>
+            <li><a aria-label="instagram" href="#"><img src="${createPath(
+              '/icons/icon-instagram.svg'
+            )}" alt="Instagram "></a></li>
             </ul>
           </div>
             <nav class="footer-nav">
