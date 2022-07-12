@@ -3,7 +3,6 @@ const pathName = window.location.pathname;
 function createPath(path) {
   const pathLength = pathName.split('/').length;
   if (pathLength === (window.location.port ? 3 : 4)) {
-    console.log(pathName.split('/').length);
     return `../${path}`;
   }
   return `./${path}`;
@@ -20,21 +19,23 @@ header.className = 'primary-header';
 header.innerHTML = `
 <div class="container">
   <div class="primary-header__logo-wrapper">
-    <a href=${createPath(
-      'index.html'
-    )} class="primary-header__logo primary-header__link">JSON-Placeholder</a>
+    <a href=${createPath('index.html')} class="primary-header__logo primary-header__link">JSON-Placeholder</a>
   </div>
   <nav class="primary-navigation">
     <ul role="list" class="nav-list">
   
       </ul>
       </nav>
-      <form primary-header__form action="../search/search.html">
-        <input primary-header__input type="search" placeholder="search" name="search" />
-        <button class="button">Search</button>
-      </form>
-</div>
-`;
+      ${
+        pathName.includes('search.html')
+          ? '</div>'
+          : `
+    <form primary-header__form action="../search/search.html">
+      <input primary-header__input type="search" placeholder="search" name="search" />
+      <button class="button">Search</button>
+    </form>
+</div>`
+      }`;
 document.body.prepend(header);
 
 navItems.map(navItem => {

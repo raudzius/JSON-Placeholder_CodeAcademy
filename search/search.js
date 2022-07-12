@@ -1,88 +1,71 @@
 const main = document.querySelector('main');
-const div = document.createElement('div');
+const div = document.querySelector('.searchResult');
 
-function displaySearchResults(array, heading) {
-  if (array.length) {
-    const ul = document.createElement('ul');
+function searchForm(searchPhrase, paramExtra = '') {
+  const h1 = document.createElement('h1');
+  h1.textContent = 'No matching results';
+
+  const queryParams = {
+    users: ['username', 'name', 'email'],
+    albums: ['title'],
+    posts: ['title'],
+  };
+
+  let count = 0;
+
+  Object.keys(queryParams).forEach(key => {
     const h2 = document.createElement('h2');
-    h2.textContent = heading;
-    array.forEach(item => {
-      const li = document.createElement('li');
-      for (key in item) {
-        if (typeof item[key] === 'object' || key === 'id' || key === 'userId') {
-          continue;
-        }
+    const ul = document.createElement('ul');
 
-        const p = document.createElement('p');
-        p.textContent = `${key}: ${item[key]}`;
-        li.append(p);
-      }
-      ul.append(li);
-    });
-    div.append(h2, ul);
-  }
-}
-
-function filterObjWithoutInput(array, searchValue) {
-  return array.filter(item => {
-    for (key in item) {
-      if (typeof item[key] === 'object' || key === 'id' || key === 'userId') {
-        continue;
-      }
-
-      if (item[key].toString().toLowerCase().includes(searchValue.toLowerCase())) {
-        return true;
-      }
-    }
-  });
-}
-
-fetch('https://jsonplaceholder.typicode.com/users')
-  .then(res => res.json())
-  .then(users => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(posts => {
-        fetch('https://jsonplaceholder.typicode.com/albums')
-          .then(res => res.json())
-          .then(albums => {
-            const searchValue = new URLSearchParams(location.search).get('search');
-            const form = document.forms[1];
-
-            let filteredUsers = users.filter(user => user.username === searchValue || user.name === searchValue || user.email === searchValue);
-            let filteredPosts = posts.filter(post => post.title === searchValue);
-            let filteredAlbums = albums.filter(album => album.title === searchValue);
-
-            displaySearchResults(filteredUsers, 'Users');
-            displaySearchResults(filteredPosts, 'Posts');
-            displaySearchResults(filteredAlbums, 'Albums');
-
-            const h1 = document.createElement('h1');
-            if (!filteredUsers.length && !filteredPosts.length && !filteredAlbums.length) {
-              h1.textContent = 'Rezultatų pagal užklausą nerasta.';
-              main.prepend(h1);
-            }
-
-            form.addEventListener('submit', event => {
-              event.preventDefault();
-              h1.remove();
-              div.innerHTML = ``;
-              const form = event.target;
-              const searchValue = form.elements.search.value;
-
-              let filteredUsers = filterObjWithoutInput(users, searchValue);
-              let filteredPosts = filterObjWithoutInput(posts, searchValue);
-              let filteredAlbums = filterObjWithoutInput(albums, searchValue);
-
-              displaySearchResults(filteredUsers, 'Users');
-              displaySearchResults(filteredPosts, 'Posts');
-              displaySearchResults(filteredAlbums, 'Albums');
-              if ((div.innerHTML === '')) {
-                main.prepend(h1);
+    div.append(h2);
+    div.append(ul);
+    queryParams[key].forEach(urlParam => {
+      fetch(`https://jsonplaceholder.typicode.com/${key}?${urlParam + paramExtra}=${searchPhrase}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.length) {
+            data.forEach(obj => {
+              const li = document.createElement('li');
+              if (key === 'users') {
+                li.innerHTML = `<a href="../user/user.html?user_id=${obj.id}">${obj.name}</a>`;
               }
-              main.append(div);
+              if (key === 'albums') {
+                li.innerHTML = `<a href="../album/album.html?album_id=${obj.id}">${obj.title}</a>`;
+              }
+              if (key === 'posts') {
+                li.innerHTML = `<a href="../post/post.html?post_id=${obj.id}">${obj.title}</a>`;
+              }
+              h2.textContent = key[0].toUpperCase() + key.slice(1);
+              ul.append(li);
             });
-            main.append(div);
-          });
-      });
+          } else {
+            count++;
+            count === [].concat(...Object.values(queryParams)).length && div.append(h1);
+          }
+        });
+    });
   });
+}
+
+function outerSearchForm() {
+  const searchPhrase = new URLSearchParams(document.location.search).get('search');
+  searchForm(searchPhrase);
+  window.history.pushState({}, document.title, window.location.pathname);
+}
+
+function innerSearchForm() {
+  document.forms[0].addEventListener('submit', event => {
+    event.preventDefault();
+    div.innerHTML = ``;
+
+    const searchInputValue = event.target.elements.search.value;
+    searchForm(searchInputValue, '_like');
+  });
+}
+
+function init() {
+  outerSearchForm();
+  innerSearchForm();
+}
+
+init();
