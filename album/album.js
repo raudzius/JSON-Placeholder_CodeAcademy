@@ -12,7 +12,7 @@ fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}`)
             const section = document.createElement('section');
             section.innerHTML = `<h2>${album.title}</h2>
             <p><a href="../author/author.html">${author.name}</a></p>`;
-            document.body.prepend(section);
+            document.querySelector('main').prepend(section);
             photos.forEach(photo => {
               const div = document.createElement('div');
               const img = document.createElement('img');
