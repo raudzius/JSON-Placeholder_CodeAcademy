@@ -50,7 +50,6 @@ function searchForm(searchPhrase, paramExtra = '') {
 function outerSearchForm() {
   const searchPhrase = new URLSearchParams(document.location.search).get('search');
   searchForm(searchPhrase);
-  // window.history.pushState({}, document.title, window.location.pathname);
 }
 
 function innerSearchForm() {

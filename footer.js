@@ -14,21 +14,11 @@ footer.innerHTML = `
           <div class="footer-social">
             <a href="" class="primary-header__logo">JSON-Placeholder</a>
             <ul role="list" aria-label="Social links" class="social-links">
-            <li><a aria-label="facebook" href="#"><img src=${createPath(
-              'icons/icon-facebook.svg'
-            )} alt="Facebook"></a></li>
-            <li><a aria-label="youtube" href="#"></a><img src=${createPath(
-              'icons/icon-youtube.svg'
-            )} alt="Youtube"></li>
-            <li><a aria-label="twitter" href="#"></a><img src=${createPath(
-              'icons/icon-twitter.svg'
-            )} alt="Twitter"></li>
-            <li><a aria-label="pinterest" href="#"><img src=${createPath(
-              'icons/icon-pinterest.svg'
-            )} alt="Pinterest"></a></li>
-            <li><a aria-label="instagram" href="#"><img src=${createPath(
-              '/icons/icon-instagram.svg'
-            )} alt="Instagram "></a></li>
+            <li><a aria-label="facebook" href="#"><img src=${createPath('icons/icon-facebook.svg')} alt="Facebook"></a></li>
+            <li><a aria-label="youtube" href="#"></a><img src=${createPath('icons/icon-youtube.svg')} alt="Youtube"></li>
+            <li><a aria-label="twitter" href="#"></a><img src=${createPath('icons/icon-twitter.svg')} alt="Twitter"></li>
+            <li><a aria-label="pinterest" href="#"><img src=${createPath('icons/icon-pinterest.svg')} alt="Pinterest"></a></li>
+            <li><a aria-label="instagram" href="#"><img src=${createPath('/icons/icon-instagram.svg')} alt="Instagram "></a></li>
             </ul>
           </div>
             <nav class="footer-nav">

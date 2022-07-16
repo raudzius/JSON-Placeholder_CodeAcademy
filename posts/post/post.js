@@ -1,4 +1,4 @@
-fetch('https://jsonplaceholder.typicode.com/posts/1')
+fetch('https://jsonplaceholder.typicode.com/user?_embed=posts&_limit=1')
   .then(res => res.json())
   .then(post => {
     fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
