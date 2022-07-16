@@ -1,15 +1,17 @@
-const footer = document.createElement('footer');
+export function displayFooter() {
+  const pathName = window.location.pathname;
+  const footer = document.createElement('footer');
 
-function createPath(path) {
-  const pathLength = pathName.replace().split('/').length;
-  if (pathLength === (window.location.port ? 3 : 4)) {
-    return `../${path}`;
+  function createPath(path) {
+    const pathLength = pathName.replace().split('/').length;
+    if (pathLength === (window.location.port ? 3 : 4)) {
+      return `../${path}`;
+    }
+    return `./${path}`;
   }
-  return `./${path}`;
-}
 
-footer.classList.add('bg-neutral-100');
-footer.innerHTML = `
+  footer.classList.add('bg-neutral-100');
+  footer.innerHTML = `
       <div class="container">
           <div class="footer-social">
             <a href="" class="primary-header__logo">JSON-Placeholder</a>
@@ -44,4 +46,7 @@ footer.innerHTML = `
       </div>
 `;
 
-document.body.append(footer);
+  document.body.append(footer);
+}
+
+displayFooter();

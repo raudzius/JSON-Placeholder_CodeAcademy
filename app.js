@@ -1,3 +1,6 @@
+import { renderHeader } from './header.js';
+import { displayFooter } from './footer.js';
+
 function displayPosts() {
   fetch('https://jsonplaceholder.typicode.com/posts?_expand=user&_embed=comments&_limit=15')
     .then(res => res.json())
@@ -78,9 +81,11 @@ function enableSearchForm() {
 }
 
 function init() {
+  renderHeader();
   displayPosts();
   displayAlbums();
   enableSearchForm();
+  displayFooter();
 }
 
 init();

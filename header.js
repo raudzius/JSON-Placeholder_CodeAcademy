@@ -1,22 +1,23 @@
-const pathName = window.location.pathname;
+export function renderHeader() {
+  const pathName = window.location.pathname;
 
-function createPath(path) {
-  const pathLength = pathName.split('/').length;
-  if (pathLength === (window.location.port ? 3 : 4)) {
-    return `../${path}`;
+  function createPath(path) {
+    const pathLength = pathName.split('/').length;
+    if (pathLength === (window.location.port ? 3 : 4)) {
+      return `../${path}`;
+    }
+    return `./${path}`;
   }
-  return `./${path}`;
-}
 
-const navItems = [
-  { title: 'Posts', path: createPath('posts/posts.html') },
-  { title: 'Albums', path: createPath('albums/albums.html') },
-  { title: 'Users', path: createPath('users/users.html') },
-];
+  const navItems = [
+    { title: 'Posts', path: createPath('posts/posts.html') },
+    { title: 'Albums', path: createPath('albums/albums.html') },
+    { title: 'Users', path: createPath('users/users.html') },
+  ];
 
-const header = document.createElement('header');
-header.className = 'primary-header';
-header.innerHTML = `
+  const header = document.createElement('header');
+  header.className = 'primary-header';
+  header.innerHTML = `
 <div class="container">
   <div class="primary-header__logo-wrapper">
     <a href=${createPath('index.html')} class="primary-header__logo primary-header__link">JSON-Placeholder</a>
@@ -36,22 +37,25 @@ header.innerHTML = `
     </form>
 </div>`
       }`;
-document.body.prepend(header);
+  document.body.prepend(header);
 
-navItems.map(navItem => {
-  const navItemLi = document.createElement('li');
-  const navItemLink = document.createElement('a');
-  const linkPath = navItem.path.slice(navItem.path.indexOf('/'));
+  navItems.map(navItem => {
+    const navItemLi = document.createElement('li');
+    const navItemLink = document.createElement('a');
+    const linkPath = navItem.path.slice(navItem.path.indexOf('/'));
 
-  navItemLi.className = 'primary-header__li';
-  navItemLink.className = 'primary-header__link';
-  navItemLink.textContent = navItem.title;
-  navItemLink.href = navItem.path;
+    navItemLi.className = 'primary-header__li';
+    navItemLink.className = 'primary-header__link';
+    navItemLink.textContent = navItem.title;
+    navItemLink.href = navItem.path;
 
-  if (pathName.includes(linkPath)) {
-    navItemLink.classList.add('active');
-  }
+    if (pathName.includes(linkPath)) {
+      navItemLink.classList.add('active');
+    }
 
-  navItemLi.append(navItemLink);
-  document.querySelector('.nav-list').append(navItemLi);
-});
+    navItemLi.append(navItemLink);
+    document.querySelector('.nav-list').append(navItemLi);
+  });
+}
+
+renderHeader();
