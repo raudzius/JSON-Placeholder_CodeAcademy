@@ -31,7 +31,7 @@ function renderUserData() {
 
       user.posts.forEach(post => {
         const li = document.createElement('li');
-        li.innerHTML = `<h3><a href="../post/post.html?post_id=${post.id}">${post.title}</a></h3>
+        li.innerHTML = `<h3><a href="../../posts/post/post.html?post_id=${post.id}">${post.title}</a></h3>
                       <p>${post.body}</p>`;
         postsOl.append(li);
       });

@@ -11,7 +11,7 @@ function renderAlbums() {
     .then(albums => {
       albums.forEach(album => {
         const li = document.createElement('li');
-        li.innerHTML = `<h2><a href="../album/album.html?album_id=${album.id}">${album.title}</a></h2>
+        li.innerHTML = `<h2><a href="../albums/album/album.html?album_id=${album.id}">${album.title}</a></h2>
         <p>${album.photos.length}</p>
         <p>${album.user.name}</p>
         <img src="${album.photos[0].thumbnailUrl}" />`;

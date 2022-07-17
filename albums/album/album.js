@@ -1,3 +1,6 @@
+import { displayHeader } from '../../header.js';
+import { displayFooter } from '../../footer.js';
+
 function renderAlbum() {
   const albumId = new URLSearchParams(location.search).get('album_id');
   fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embed=photos`)
@@ -30,4 +33,10 @@ function renderAlbum() {
     });
 }
 
-renderAlbum();
+function init() {
+  displayHeader();
+  renderAlbum();
+  displayFooter();
+}
+
+init();

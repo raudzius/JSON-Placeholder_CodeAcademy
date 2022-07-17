@@ -1,34 +1,47 @@
-const form = document.forms[0];
+import { displayHeader } from '../../header.js';
+import { displayFooter } from '../../footer.js';
 
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  const ul = document.querySelector('ul');
-  const form = event.target;
-  const titleValue = form.elements.title.value;
-  const bodyValue = form.elements.body.value;
-  const userIdValue = form.elements['user-id'].value;
+function activateForm() {
+  const form = document.forms[1];
 
-  fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    body: JSON.stringify({
-      title: titleValue,
-      body: bodyValue,
-      userId: userIdValue,
-    }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  })
-    .then(res => res.json())
-    .then(post => {
-      const li = document.createElement('li');
-      for (key in post) {
-        const p = document.createElement('p');
-        p.textContent = `${key}: ${post[key]}`;
-        li.append(p);
-      }
-      ul.append(li);
-    });
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const ul = document.querySelector('main > ul');
+    const form = event.target;
+    const titleValue = form.elements.title.value;
+    const bodyValue = form.elements.body.value;
+    const userIdValue = form.elements['user-id'].value;
 
-  form.reset();
-});
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: titleValue,
+        body: bodyValue,
+        userId: userIdValue,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then(res => res.json())
+      .then(post => {
+        const li = document.createElement('li');
+        for (const key in post) {
+          const p = document.createElement('p');
+          p.textContent = `${key}: ${post[key]}`;
+          li.append(p);
+        }
+        ul.append(li);
+      });
+
+    form.reset();
+  });
+}
+
+function init() {
+  displayHeader();
+  activateForm();
+  displayFooter();
+}
+
+init();

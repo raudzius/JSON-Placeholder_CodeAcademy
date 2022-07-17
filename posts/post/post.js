@@ -1,12 +1,21 @@
-fetch('https://jsonplaceholder.typicode.com/user?_embed=posts&_limit=1')
-  .then(res => res.json())
-  .then(post => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
-      .then(res => res.json())
-      .then(author => {
-        const main = document.createElement('main');
-        main.innerHTML = `<h2>${post.title}</h2>
-                           <p><a href="../author/author.html">${author.name}</a></p>`;
-        document.body.append(main);
+import { displayHeader } from './../../header.js';
+import { displayFooter } from './../../footer.js';
+
+function renderPost() {
+  fetch('https://jsonplaceholder.typicode.com/users?_embed=posts&_limit=1')
+    .then(res => res.json())
+    .then(users => {
+      users.forEach(user => {
+        const main = document.querySelector('main');
+        main.innerHTML = `<h2>${user.name}</h2>`;
       });
-  });
+    });
+}
+
+function init() {
+  displayHeader();
+  renderPost();
+  displayFooter();
+}
+
+init();
