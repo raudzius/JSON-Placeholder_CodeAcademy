@@ -69,7 +69,6 @@ body {
 }
 
 body {
-  /* text-rendering: optimizeSpeed; */
   line-height: 1.5;
 }
 
@@ -184,6 +183,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100vh;
 }
 
 form {

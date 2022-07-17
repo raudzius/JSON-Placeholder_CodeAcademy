@@ -1,3 +1,6 @@
+import { displayHeader } from '../header.js';
+import { displayFooter } from '../footer.js';
+
 function displayUsers() {
   const main = document.querySelector('main');
   const ul = document.createElement('ul');
@@ -13,4 +16,10 @@ function displayUsers() {
   main.append(ul);
 }
 
-displayUsers();
+function init() {
+  displayHeader();
+  displayUsers();
+  displayFooter();
+}
+
+init();

@@ -7,6 +7,9 @@ export function displayFooter() {
     if (pathLength === (window.location.port ? 3 : 4)) {
       return `../${path}`;
     }
+    if (pathLength === (window.location.port ? 4 : 5)) {
+      return `../../${path}`;
+    }
     return `./${path}`;
   }
 
@@ -48,5 +51,3 @@ export function displayFooter() {
 
   document.body.append(footer);
 }
-
-displayFooter();

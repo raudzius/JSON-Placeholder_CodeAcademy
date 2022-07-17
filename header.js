@@ -1,10 +1,13 @@
-export function renderHeader() {
+export function displayHeader() {
   const pathName = window.location.pathname;
 
   function createPath(path) {
     const pathLength = pathName.split('/').length;
     if (pathLength === (window.location.port ? 3 : 4)) {
       return `../${path}`;
+    }
+    if (pathLength === (window.location.port ? 4 : 5)) {
+      return `../../${path}`;
     }
     return `./${path}`;
   }
@@ -57,5 +60,3 @@ export function renderHeader() {
     document.querySelector('.nav-list').append(navItemLi);
   });
 }
-
-renderHeader();

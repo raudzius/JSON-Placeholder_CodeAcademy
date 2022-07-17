@@ -1,4 +1,7 @@
-function renderPosts() {
+import { displayHeader } from '../header.js';
+import { displayFooter } from '../footer.js';
+
+function displayPosts() {
   fetch('https://jsonplaceholder.typicode.com/posts?_limit=15')
     .then(res => res.json())
     .then(posts => {
@@ -14,7 +17,7 @@ function renderPosts() {
         a.href = `./editPost.html?user_id=${post.userId}&post_id=${post.id}&post_title=${post.title}&post_body=${post.body}`;
         a.textContent = 'Edit';
 
-        for (key in post) {
+        for (const key in post) {
           const p = document.createElement('p');
           p.textContent = `${key}: ${post[key]}`;
           li.append(p);
@@ -36,4 +39,10 @@ function renderPosts() {
     });
 }
 
-renderPosts();
+function init() {
+  displayHeader();
+  displayPosts();
+  displayFooter();
+}
+
+init();

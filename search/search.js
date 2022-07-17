@@ -1,7 +1,8 @@
-const main = document.querySelector('main');
-const div = document.querySelector('.searchResult');
+import { displayHeader } from '../header.js';
+import { displayFooter } from '../footer.js';
 
 function searchForm(searchPhrase, paramExtra = '') {
+  const div = document.querySelector('.searchResult');
   const h1 = document.createElement('h1');
   h1.textContent = 'No matching results';
 
@@ -55,6 +56,7 @@ function outerSearchForm() {
 function innerSearchForm() {
   document.forms[0].addEventListener('submit', event => {
     event.preventDefault();
+    const div = event.target.nextElementSibling;
     div.innerHTML = ``;
 
     const searchInputValue = event.target.elements.search.value;
@@ -63,8 +65,10 @@ function innerSearchForm() {
 }
 
 function init() {
+  displayHeader();
   outerSearchForm();
   innerSearchForm();
+  displayFooter();
 }
 
 init();

@@ -1,4 +1,4 @@
-import { renderHeader } from './header.js';
+import { displayHeader } from './header.js';
 import { displayFooter } from './footer.js';
 
 function displayPosts() {
@@ -16,7 +16,7 @@ function displayPosts() {
         postsLi.className = 'posts-li';
         postsLi.innerHTML = `<h3 class="fs-600 fw-bold">${post.title}</h3><p>${post.body}</p>`;
         div.className = 'action-wrapper';
-        a.href = `./user/user.html?user_id=${post.userId}`;
+        a.href = `./users/user/user.html?user_id=${post.userId}`;
         a.textContent = post.user.name;
         commentsBtn.className = 'button';
         commentsBtn.textContent = 'Comments';
@@ -81,7 +81,7 @@ function enableSearchForm() {
 }
 
 function init() {
-  renderHeader();
+  displayHeader();
   displayPosts();
   displayAlbums();
   enableSearchForm();

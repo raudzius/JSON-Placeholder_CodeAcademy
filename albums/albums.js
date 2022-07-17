@@ -1,3 +1,6 @@
+import { displayHeader } from '../header.js';
+import { displayFooter } from '../footer.js';
+
 function renderAlbums() {
   const main = document.querySelector('main');
   const ul = document.createElement('ul');
@@ -17,4 +20,10 @@ function renderAlbums() {
     });
 }
 
-renderAlbums();
+function init() {
+  displayHeader();
+  renderAlbums();
+  displayFooter();
+}
+
+init();
